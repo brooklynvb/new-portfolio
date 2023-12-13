@@ -1,0 +1,28 @@
+body {
+  background-color: #fafafa;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+section {
+  max-width: 100%;
+  padding: 100px;
+  margin: 0 auto;
+}
+.grid {
+  display: grid;
+}
+.grid-2-columns {
+  grid-template-columns: 1fr 1fr;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 45px;
+}
+
+.auto-type {
+  font-family: "Lexend", sans-serif;
+  color: #ff347f;
+}
