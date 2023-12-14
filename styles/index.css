@@ -1,5 +1,11 @@
-body {
+/* BACKGROUND */
+.ball {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.7;
+  overflow: hidden;
 }
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -10,9 +16,13 @@ img {
 .text-center {
   text-align: center;
 }
+header {
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
 section {
   max-width: 100%;
-  padding: 100px;
+  padding-top: 30px;
   margin: 0 auto;
 }
 .grid {
@@ -21,26 +31,54 @@ section {
 .grid-2-columns {
   grid-template-columns: 1fr 1fr;
 }
-.grid-3-columns {
-  grid-template-columns: 1fr 1fr 1fr;
+.grid-4-columns {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .grid-space {
   grid-gap: 60px;
 }
-
+/* HEADER */
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 45px;
 }
-.header-img {
-  border-radius: 20% 80% 29% 71% / 59% 26% 74% 41%;
+button {
+  letter-spacing: 2px;
+  font-family: "Montserrat", sans-serif;
+  padding: 10px 20px;
+  font-size: 15px;
+  transition: 0.5s ease-in-out;
+}
+.header-btn {
+  margin-top: 40px;
+  border: 2px solid #afdbdb;
+  background-color: #afdbdb;
+}
+.header-btn:hover {
+  background-color: white;
+  border: 2px solid #afdbdb;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 .auto-type {
   font-family: "Lexend", sans-serif;
   color: #ff347f;
 }
+/* ABOUT */
+.bio-img {
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
+}
+.bio {
+  margin: 0px 30px;
+}
 
 /* PROJECTS */
+
 h2 {
   margin-bottom: 40px;
   color: #ff347f;
@@ -115,4 +153,36 @@ p {
 }
 .blob-back-4:hover {
   border-radius: 50% 50% 49% 51% / 42% 83% 17% 58%;
+}
+/* CONTACT */
+.contact {
+  border: 4px solid #eaf6f6;
+  border-radius: 3px;
+  margin: 30px 350px;
+  padding: 0px 30px 20px 30px;
+  align-items: center;
+}
+.contact-btn {
+  background-color: #ff347f;
+  border: 2px solid #ff347f;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.contact-btn:hover {
+  background-color: white;
+  border: 2px solid #ff347f;
+}
+.icons {
+  display: flex;
+  justify-content: center;
+}
+i {
+  padding: 0px 10px;
+}
+h4 {
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }

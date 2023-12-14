@@ -23,31 +23,29 @@
       content="Front-end developer from South Carolina in the United States."
     />
     <link rel="stylesheet" href="styles/index.css" />
-    <script src="https://cdn.jsdelivr.net/npm/kute.js@2.2.4/dist/kute.min.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/e78298b102.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="container">
-      <header></header>
+      <header class="text-center">
+        <h1>Hello I'm Brooklyn</h1>
+        <h1>
+          a
+          <span class="auto-type"></span>
+        </h1>
+        <button class="header-btn"><a href="#contact">Contact Me</a></button>
+      </header>
 
       <main>
-        <section>
-          <div class="grid grid-2-columns">
-            <div>
-              <h1>Hello I'm Brooklyn</h1>
-              <h1>
-                a
-                <span class="auto-type"></span>
-              </h1>
-              <div class="btn">Contact Me</div>
-            </div>
-            <div><img src="/images/selfiee.jpg" class="header-img" /></div>
-          </div>
-        </section>
         <section>
           <h2>About Me</h2>
           <div class="grid grid-2-columns">
             <div>
-              <p>
+              <p class="bio">
                 Greetings and welcome to my portfolio site! As an avid gamer I
                 have honed my skills in the virtual realms; now I am channeling
                 that passion into crafting code and design that is not only
@@ -55,7 +53,8 @@
                 development, just as in gaming, the mission is the same: strike
                 the perfect balance between aesthetics and user experience.
               </p>
-              <p>
+              <br />
+              <p class="bio">
                 My portfolio is the result of countless hours of work and
                 dedication. It is also an open invitation to connect,
                 collaborate, and journey through the endliss possibilities of
@@ -64,12 +63,12 @@
                 experiences together!
               </p>
             </div>
-            <div><img src="/images/selfie.png" /></div>
+            <div><img src="/images/selfie.png" class="bio-img" /></div>
           </div>
         </section>
-        <section>
+        <section class="proj">
           <h2>Projects</h2>
-          <div class="grid grid-3-columns grid-space">
+          <div class="grid grid-4-columns grid-space">
             <div>
               <div class="blob-back-1">
                 <img src="/images/trip-pic.PNG" class="blob-1" />
@@ -108,6 +107,36 @@
             <div></div>
           </div>
         </section>
+        <section id="contact">
+          <div class="grid grid-2-columns contact">
+            <div class="">
+              <h4 class="text-center">Contact Me</h4>
+              <span class="icons"
+                ><a
+                  href="https://www.linkedin.com/in/brooklyn-van-bebber-6bb8a9242/"
+                  ><i
+                    class="fa-brands fa-linkedin fa-xl"
+                    style="color: #79c2d0"
+                  ></i></a
+                ><a href="https://github.com/ANurfHerder"
+                  ><i
+                    class="fa-brands fa-github fa-xl"
+                    style="color: black"
+                  ></i></a
+                ><a href="https://www.instagram.com/anurfherder/">
+                  <i
+                    class="fa-brands fa-instagram fa-xl"
+                    style="color: #ffb5b5"
+                  ></i></a
+              ></span>
+            </div>
+            <div class="">
+              <button class="contact-btn">
+                <a href="mailto:bevanbebber@gmail.com">Email me</a>
+              </button>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
@@ -117,6 +146,49 @@
         typeSpeed: 150,
         backSpeed: 150,
         loop: true,
+      });
+
+      // Some random colors
+      const colors = ["#f76b8a", "#66bfbf", "#1B1B1B", "#eaf6f6", "#fdffcd"];
+
+      const numBalls = 100;
+      const balls = [];
+
+      for (let i = 0; i < numBalls; i++) {
+        let ball = document.createElement("div");
+        ball.classList.add("ball");
+        ball.style.background =
+          colors[Math.floor(Math.random() * colors.length)];
+        ball.style.left = `${Math.floor(Math.random() * 90)}vw`;
+        ball.style.top = `${Math.floor(Math.random() * 300)}vh`;
+        ball.style.transform = `scale(${Math.random()})`;
+        ball.style.width = `${Math.random()}em`;
+        ball.style.height = ball.style.width;
+
+        balls.push(ball);
+        document.body.append(ball);
+      }
+
+      // Keyframes
+      balls.forEach((el, i, ra) => {
+        let to = {
+          x: Math.random() * (i % 5 === 3 ? -11 : 11),
+          y: Math.random() * 12,
+        };
+
+        let anim = el.animate(
+          [
+            { transform: "translate(0, 0)" },
+            { transform: `translate(${to.x}rem, ${to.y}rem)` },
+          ],
+          {
+            duration: (Math.random() + 1) * 6000, // random duration
+            direction: "alternate",
+            fill: "both",
+            iterations: Infinity,
+            easing: "ease-in-out",
+          }
+        );
       });
     </script>
   </body>
