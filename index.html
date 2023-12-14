@@ -41,11 +41,11 @@
       </header>
 
       <main>
-        <section>
+        <section id="about">
           <h2>About Me</h2>
           <div class="grid grid-2-columns">
-            <div>
-              <p class="bio">
+            <div class="bio">
+              <p>
                 Greetings and welcome to my portfolio site! As an avid gamer I
                 have honed my skills in the virtual realms; now I am channeling
                 that passion into crafting code and design that is not only
@@ -53,8 +53,8 @@
                 development, just as in gaming, the mission is the same: strike
                 the perfect balance between aesthetics and user experience.
               </p>
-              <br />
-              <p class="bio">
+
+              <p>
                 My portfolio is the result of countless hours of work and
                 dedication. It is also an open invitation to connect,
                 collaborate, and journey through the endliss possibilities of
@@ -66,9 +66,9 @@
             <div><img src="/images/selfie.png" class="bio-img" /></div>
           </div>
         </section>
-        <section class="proj">
+        <section id="projects">
           <h2>Projects</h2>
-          <div class="grid grid-4-columns grid-space">
+          <div class="grid grid-4-columns grid-space projects">
             <div>
               <div class="blob-back-1">
                 <img src="/images/trip-pic.PNG" class="blob-1" />
@@ -109,7 +109,7 @@
         </section>
         <section id="contact">
           <div class="grid grid-2-columns contact">
-            <div class="">
+            <div>
               <h4 class="text-center">Contact Me</h4>
               <span class="icons"
                 ><a
@@ -130,14 +130,66 @@
                   ></i></a
               ></span>
             </div>
-            <div class="">
+            <div>
               <button class="contact-btn">
                 <a href="mailto:bevanbebber@gmail.com">Email me</a>
               </button>
             </div>
           </div>
         </section>
+        <section>
+          <h2>Certification</h2>
+          <div class="grid grid-2-columns">
+            <div class="shecodes">
+              <p>
+                Through the SheCodes program I have been working to obtain my
+                Front-end Developer certificate. Currently I have completed the
+                Advanced Responsive Development and am enroled in the REACT. I
+                am excited to continue my education and look foreward to
+                finishing before the end of the year.
+              </p>
+              <p>Through this process I have gained experience with:</p>
+              <ul class="grid grid-2-columns">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS</li>
+                <li>VSCode</li>
+                <li>API</li>
+                <li>Github</li>
+                <li>Hosting</li>
+                <li>Bootstrap</li>
+                <li>Flexbox</li>
+                <li>SEO</li>
+                <li>Responsive</li>
+              </ul>
+            </div>
+            <div><img src="/images/185635.png" class="shecodes-img" /></div>
+          </div>
+        </section>
       </main>
+    </div>
+    <footer>
+      <div class="grid grid-1-column">
+        <div class="footer-icons">
+          <a href="https://www.linkedin.com/in/brooklyn-van-bebber-6bb8a9242/">
+            <i class="fa-brands fa-linkedin fa-xl" style="color: #79c2d0"></i>
+          </a>
+          <a href="https://github.com/ANurfHerder">
+            <i class="fa-brands fa-github fa-xl" style="color: black"></i>
+          </a>
+          <a href="https://www.instagram.com/anurfherder/">
+            <i class="fa-brands fa-instagram fa-xl" style="color: #ffb5b5"></i>
+          </a>
+        </div>
+        <div class="footer-nav grid grid-3-columns">
+          <div><a href="#about">About</a></div>
+          <div><a href="#projects">Projects</a></div>
+          <div><a href="#contact">Contact</a></div>
+        </div>
+      </div>
+    </footer>
+    <div class="footer-bottom">
+      <p>This website was coded by Brooklyn Van Bebber</p>
     </div>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
@@ -160,7 +212,7 @@
         ball.style.background =
           colors[Math.floor(Math.random() * colors.length)];
         ball.style.left = `${Math.floor(Math.random() * 90)}vw`;
-        ball.style.top = `${Math.floor(Math.random() * 300)}vh`;
+        ball.style.top = `${Math.floor(Math.random() * 250)}vh`;
         ball.style.transform = `scale(${Math.random()})`;
         ball.style.width = `${Math.random()}em`;
         ball.style.height = ball.style.width;
