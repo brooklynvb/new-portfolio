@@ -249,7 +249,11 @@ footer a:hover {
   font-size: 12px;
   background-color: #ff347e4d;
 }
-
+@media (max-width: 1400px) {
+  .contact {
+    margin: 30px 180px;
+  }
+}
 @media (max-width: 800px) {
   h2 {
     text-align: center;
