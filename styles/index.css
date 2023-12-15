@@ -99,6 +99,7 @@ p {
 .projects {
   margin-top: 90px;
   margin: 70px;
+  margin-bottom: 20px;
 }
 .blob-1 {
   border-radius: 20% 80% 29% 71% / 59% 26% 74% 41%;
