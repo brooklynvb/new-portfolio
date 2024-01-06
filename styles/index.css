@@ -8,6 +8,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #303841;
 }
 .container {
   max-width: 1400px;
@@ -44,6 +45,7 @@ section {
 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 45px;
+  color: #d3d6db;
 }
 button {
   letter-spacing: 2px;
@@ -54,12 +56,12 @@ button {
 }
 .header-btn {
   margin-top: 50px;
-  border: 2px solid #afdbdb;
-  background-color: #afdbdb;
+  border: 2px solid #ffbd39;
+  background-color: #ffbd39;
 }
 .header-btn:hover {
-  background-color: white;
-  border: 2px solid #afdbdb;
+  background-color: #f0e19e;
+  border: 2px solid #ffbd39;
 }
 
 a {
@@ -68,16 +70,17 @@ a {
 }
 .auto-type {
   font-family: "Lexend", sans-serif;
-  color: #ff347f;
+  color: #be3144;
 }
 /* ABOUT */
 .bio-img {
-  max-width: 450px;
+  max-width: 350px;
   display: block;
   margin: 0 auto;
+  border-radius: 33% 67% 41% 59% / 54% 42% 58% 46%;
 }
 .bio {
-  margin: 60px 0px 0px 70px;
+  margin: 20px 30px 0px 70px;
   line-height: 1.5;
 }
 
@@ -86,15 +89,17 @@ a {
 h2 {
   margin-bottom: 0px;
   margin-left: 30px;
-  color: #ff347f;
+  color: #be3144;
   font-family: "Lexend", sans-serif;
   font-size: 30px;
 }
 h3 {
   font-family: "Lexend", sans-serif;
+  color: #d3d6db;
 }
 p {
   font-family: "Montserrat", sans-serif;
+  color: #d3d6db;
 }
 .projects {
   margin-top: 90px;
@@ -111,7 +116,7 @@ p {
 .blob-back-1 {
   border-radius: 77% 23% 75% 25% / 41% 26% 74% 59%;
   transition: 1s ease;
-  background-color: #afdbdb;
+  background-color: #3a4750;
 }
 .blob-back-1:hover {
   border-radius: 20% 80% 29% 71% / 59% 26% 74% 41%;
@@ -127,7 +132,7 @@ p {
 .blob-back-2 {
   border-radius: 20% 80% 29% 71% / 59% 26% 74% 41%;
   transition: 1s ease;
-  background-color: #afdbdb;
+  background-color: #3a4750;
 }
 .blob-back-2:hover {
   border-radius: 77% 23% 75% 25% / 41% 26% 74% 59%;
@@ -143,7 +148,7 @@ p {
 .blob-back-3 {
   border-radius: 33% 67% 33% 67% / 66% 63% 37% 34%;
   transition: 1s ease;
-  background-color: #afdbdb;
+  background-color: #3a4750;
 }
 .blob-back-3:hover {
   border-radius: 77% 23% 33% 67% / 41% 63% 37% 59%;
@@ -159,29 +164,29 @@ p {
 .blob-back-4 {
   border-radius: 28% 72% 49% 51% / 51% 45% 55% 49%;
   transition: 1s ease;
-  background-color: #afdbdb;
+  background-color: #3a4750;
 }
 .blob-back-4:hover {
   border-radius: 50% 50% 49% 51% / 42% 83% 17% 58%;
 }
 /* CONTACT */
 .contact {
-  border: 4px solid #eaf6f6;
+  border: 4px solid #ffbd3971;
   border-radius: 3px;
   margin: 60px 350px;
   padding: 0px 30px 20px 30px;
   align-items: center;
 }
 .contact-btn {
-  background-color: #ff347f;
-  border: 2px solid #ff347f;
+  background-color: #ffbd39;
+  border: 2px solid #ffbd39;
   display: block;
   margin: 0 auto;
   margin-top: 10px;
 }
 .contact-btn:hover {
-  background-color: white;
-  border: 2px solid #ff347f;
+  background-color: #f0e19e;
+  border: 2px solid #ffbd39;
 }
 .icons {
   display: flex;
@@ -195,15 +200,17 @@ h4 {
   font-family: "Montserrat", sans-serif;
   margin-top: 30px;
   margin-bottom: 20px;
+  color: #d3d6db;
 }
 /* CERTIFICATION */
 .shecodes {
-  margin: 50px 0px 0px 70px;
+  margin: 20px 40px 0px 70px;
   line-height: 1.5;
 }
 ul {
   font-family: "Montserrat", sans-serif;
   list-style-type: circle;
+  color: #d3d6db;
 }
 .shecodes-img {
   display: block;
@@ -213,7 +220,7 @@ ul {
 }
 /* FOOTER */
 footer {
-  background-color: #ff347e21;
+  background-color: #21272c;
   margin-top: 80px;
   width: 100%;
   padding-top: 30px;
@@ -239,6 +246,7 @@ footer {
 footer a {
   opacity: 0.7;
   transition: 0.5s;
+  color: #d3d6db;
 }
 footer a:hover {
   opacity: 1;
@@ -248,7 +256,7 @@ footer a:hover {
   justify-content: center;
   opacity: 0.7;
   font-size: 12px;
-  background-color: #ff347e4d;
+  background-color: #15191d;
 }
 @media (max-width: 1400px) {
   .contact {
