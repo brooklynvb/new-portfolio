@@ -1,36 +1,882 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brooklyn Van Bebber - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="/_sdk/element_sdk.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Caveat:wght@500&amp;display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lexend&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap"
-      rel="stylesheet"
-    />
-    <title>Brooklyn Van Bebber - Responsive Web Developer</title>
-    <meta
-      name="description"
-      content="Front-end developer from South Carolina in the United States."
-    />
-    <link rel="stylesheet" href="styles/index.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
-    
+      .font-primary {
+        font-family: "Nunito", sans-serif;
+      }
+      .font-accent {
+        font-family: "Caveat", cursive;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes wiggle {
+        0%,
+        100% {
+          transform: rotate(-3deg);
+        }
+        50% {
+          transform: rotate(3deg);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      .animate-wiggle {
+        animation: wiggle 2s ease-in-out infinite;
+      }
+      .animate-fade-in {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .card-hover:hover {
+        transform: translateY(-8px) rotate(1deg);
+      }
+
+      .blob {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      }
+
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        border-radius: 2px;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .stagger-1 {
+        animation-delay: 0.1s;
+      }
+      .stagger-2 {
+        animation-delay: 0.2s;
+      }
+      .stagger-3 {
+        animation-delay: 0.3s;
+      }
+      .stagger-4 {
+        animation-delay: 0.4s;
+      }
+      .stagger-5 {
+        animation-delay: 0.5s;
+      }
+      .stagger-6 {
+        animation-delay: 0.6s;
+      }
+
+      iframe {
+        width: 100% !important;
+        height: 100% !important;
+        aspect-ratio: 16/9;
+      }
+    </style>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   </head>
-  <body>
-    <div class="container">
-      <header class="text-center">
-        <h1>Currently Under Maintenance</h1>
-        <p class="emoji">🛠️</p>
-        
+  <body class="h-full">
+    <div
+      id="app-wrapper"
+      class="w-full h-full overflow-auto font-primary"
+      style="
+        background: linear-gradient(
+          135deg,
+          #fef3f2 0%,
+          #fef9f3 50%,
+          #f0fdf4 100%
+        );
+      "
+    >
+      <!-- Decorative Blobs -->
+      <div
+        class="fixed top-20 left-10 w-32 h-32 blob opacity-30 animate-float"
+        style="background: #fda4af"
+      ></div>
+      <div
+        class="fixed top-40 right-20 w-24 h-24 blob opacity-20 animate-float"
+        style="background: #86efac; animation-delay: 1s"
+      ></div>
+      <div
+        class="fixed bottom-32 left-1/4 w-20 h-20 blob opacity-25 animate-float"
+        style="background: #fcd34d; animation-delay: 2s"
+      ></div>
+      <!-- Navigation -->
+      <nav
+        class="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-rose-100"
+      >
+        <div
+          class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-2">
+            <span class="text-2xl animate-wiggle">✨</span>
+            <span
+              id="nav-title"
+              class="font-bold text-xl"
+              style="color: #be185d"
+              >Portfolio</span
+            >
+          </div>
+          <div class="flex gap-8">
+            <a
+              href="#projects"
+              class="nav-link font-semibold transition-colors"
+              style="color: #9f1239"
+              onmouseover="this.style.color = '#be185d'"
+              onmouseout="this.style.color = '#9f1239'"
+            >
+              <span
+                style="
+                  position: absolute;
+                  bottom: -4px;
+                  left: 0;
+                  width: 0;
+                  height: 3px;
+                  border-radius: 2px;
+                  background: #fda4af;
+                "
+              ></span>
+              Projects
+            </a>
+            <a
+              href="#resources"
+              class="nav-link font-semibold transition-colors"
+              style="color: #9f1239"
+              onmouseover="this.style.color = '#be185d'"
+              onmouseout="this.style.color = '#9f1239'"
+              >Resources</a
+            >
+            <a
+              href="#videos"
+              class="nav-link font-semibold transition-colors"
+              style="color: #9f1239"
+              onmouseover="this.style.color = '#be185d'"
+              onmouseout="this.style.color = '#9f1239'"
+              >Videos</a
+            >
+          </div>
+        </div>
+      </nav>
+      <!-- Hero Section -->
+     <header class="relative max-w-6xl mx-auto px-6 py-20 text-center">
+    <div class="animate-fade-in">
+     <div class="inline-block mb-6">
+      <div class="w-32 h-32 mx-auto rounded-full flex items-center justify-center text-6xl shadow-lg" style="background: linear-gradient(135deg, #fecdd3, #fef08a);">
+       👩‍💻
+      </div>
+     </div>
+     <h1 class="text-5xl md:text-6xl font-extrabold mb-4" style="color: #9f1239;">Hey, I'm <span style="color: #be185d;">Brooklyn</span></h1>
+     <p id="hero-tagline" class="font-accent text-3xl mb-8" style="color: #f472b6;">Building cute things for the internet ✿</p>
+     <div class="flex justify-center gap-4 flex-wrap">
+      <span class="px-4 py-2 rounded-full text-sm font-semibold shadow-sm" style="background: #fecdd3; color: #9f1239;">🎨 Designer</span> <span class="px-4 py-2 rounded-full text-sm font-semibold shadow-sm" style="background: #d9f99d; color: #3f6212;">💻 Developer</span> <span class="px-4 py-2 rounded-full text-sm font-semibold shadow-sm" style="background: #fef08a; color: #854d0e;">📹 Creator</span>
+     </div>
+    </div>
+      <!-- Projects Section -->
+      <section id="projects" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="text-center mb-12 animate-fade-in">
+          <span class="text-4xl mb-4 block">🚀</span>
+          <h2
+            id="projects-heading"
+            class="text-4xl font-extrabold mb-2"
+            style="color: #9f1239"
+          >
+            Coding Projects
+          </h2>
+          <p class="font-accent text-xl" style="color: #f472b6">
+            Things I've built with love
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Project Card 1 -->
+          <article
+            class="card-hover rounded-3xl p-6 shadow-lg border-2 animate-fade-in stagger-1 opacity-0"
+            style="background: white; border-color: #fecdd3"
+          >
+            <div
+              class="w-full h-40 rounded-2xl mb-4 flex items-center justify-center text-5xl"
+            >
+              <img
+                src="
+https://s3.amazonaws.com/shecodesio-production/uploads/files/000/178/543/original/Darcy_AI.png?1771547029"
+                style="border-radius: 10px"
+              />
+            </div>
+            <span
+              class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3"
+              style="background: #d9f99d; color: #3f6212"
+              >AI</span
+            >
+            <h3 class="font-bold text-lg mb-2" style="color: #9f1239">
+              Darcy AI
+            </h3>
+            <p class="text-sm mb-4" style="color: #be185d">
+              This was a cute project I built while getting my certificate in
+              Introduction to Artificial Intelligence. With it you can write
+              letters to Darcy from Pride and Prejudice and receive replies!
+            </p>
+            <a
+              href="https://www.shecodes.io/projects/2035379"
+              class="inline-flex items-center gap-2 font-semibold text-sm transition-colors"
+              style="color: #db2777"
+              onmouseover="this.style.color = '#be185d'"
+              onmouseout="this.style.color = '#db2777'"
+            >
+              View Project →
+            </a>
+          </article>
+          <!-- Project Card 2 -->
+          <article
+            class="card-hover rounded-3xl p-6 shadow-lg border-2 animate-fade-in stagger-2 opacity-0"
+            style="background: white; border-color: #d9f99d"
+          >
+            <div
+              class="w-full h-40 rounded-2xl mb-4 flex items-center justify-center text-5xl"
+            >
+              <img
+                src="
+https://s3.amazonaws.com/shecodesio-production/uploads/files/000/178/542/original/Travel_Site.png?1771546782"
+                style="border-radius: 10px"
+              />
+            </div>
+            <span
+              class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3"
+              style="background: #fecdd3; color: #9f1239"
+              >Responsive</span
+            >
+            <h3 class="font-bold text-lg mb-2" style="color: #9f1239">
+              Travel Website
+            </h3>
+            <p class="text-sm mb-4" style="color: #be185d">
+              This project is a travel site for Seogwipo, South Korea. It
+              utilizes some embeds from Google Maps and Instagram to create an
+              exciting website for vacations.
+            </p>
+            <a
+              href="https://www.shecodes.io/projects/1940143"
+              class="inline-flex items-center gap-2 font-semibold text-sm transition-colors"
+              style="color: #db2777"
+              onmouseover="this.style.color = '#be185d'"
+              onmouseout="this.style.color = '#db2777'"
+            >
+              View Project →
+            </a>
+          </article>
+          <!-- Project Card 3 -->
+          <article
+            class="card-hover rounded-3xl p-6 shadow-lg border-2 animate-fade-in stagger-3 opacity-0"
+            style="background: white; border-color: #fef08a"
+          >
+            <div
+              class="w-full h-40 rounded-2xl mb-4 flex items-center justify-center text-5xl"
+            >
+              <img
+                src="
+https://s3.amazonaws.com/shecodesio-production/uploads/files/000/178/541/original/Clock_Project.png?1771546112"
+                style="border-radius: 10px"
+              />
+            </div>
+
+            <span
+              class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3"
+              style="background: #c4b5fd; color: #5b21b6"
+              >API</span
+            >
+            <span
+              class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3"
+              style="background: #fef08a; color: #aa9115"
+              >JavaScript</span
+            >
+            <h3 class="font-bold text-lg mb-2" style="color: #9f1239">
+              World Clock
+            </h3>
+            <p class="text-sm mb-4" style="color: #be185d">
+              For my Advanced Web Development Certificate I used JavaScricpt to
+              create a retro clock where you can change the cities shown.
+            </p>
+            <a
+              href="https://www.shecodes.io/projects/1784095"
+              class="inline-flex items-center gap-2 font-semibold text-sm transition-colors"
+              style="color: #db2777"
+              onmouseover="this.style.color = '#be185d'"
+              onmouseout="this.style.color = '#db2777'"
+            >
+              View Project →
+            </a>
+          </article>
+        </div>
+      </section>
+      <!-- Resources Section -->
+      <section
+        id="resources"
+        class="py-16"
+        style="
+          background: linear-gradient(
+            180deg,
+            transparent,
+            rgba(254, 205, 211, 0.2),
+            transparent
+          );
+        "
+      >
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center mb-12 animate-fade-in">
+            <span class="text-4xl mb-4 block">📚</span>
+            <h2
+              id="resources-heading"
+              class="text-4xl font-extrabold mb-2"
+              style="color: #9f1239"
+            >
+              Resources
+            </h2>
+            <p class="font-accent text-xl" style="color: #f472b6">
+              Free goodies for fellow creators
+            </p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Resource Card 1 -->
+            <article
+              class="card-hover rounded-3xl p-6 shadow-lg flex items-start gap-4 animate-fade-in stagger-1 opacity-0"
+              style="background: white"
+            >
+              <div
+                class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
+                style="background: #fecdd3"
+              >
+                📝
+              </div>
+              <div>
+                <span
+                  class="inline-block px-2 py-1 rounded-full text-xs font-bold mb-2"
+                  style="background: #fef08a; color: #854d0e"
+                  >PDF</span
+                >
+                <h3 class="font-bold text-lg mb-1" style="color: #9f1239">
+                  My Resume
+                </h3>
+                <p class="text-sm mb-3" style="color: #be185d">
+                  Check out my resume and please feel free to reach out to me
+                  regarding work opportunities or for making connections!
+                </p>
+                <button
+                  class="px-4 py-2 rounded-full font-semibold text-sm transition-all hover:shadow-md"
+                  style="background: #fecdd3; color: #9f1239"
+                >
+                  Download ↓
+                </button>
+              </div>
+            </article>
+            <!-- Resource Card 2 -->
+            <article
+              class="card-hover rounded-3xl p-6 shadow-lg flex items-start gap-4 animate-fade-in stagger-2 opacity-0"
+              style="background: white"
+            >
+              <div
+                class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
+                style="background: #d9f99d"
+              >
+                🎨
+              </div>
+              <div>
+                <span
+                  class="inline-block px-2 py-1 rounded-full text-xs font-bold mb-2"
+                  style="background: #c4b5fd; color: #5b21b6"
+                  >Link</span
+                >
+                <h3 class="font-bold text-lg mb-1" style="color: #9f1239">
+                  Amazon Storefront
+                </h3>
+                <p class="text-sm mb-3" style="color: #be185d">
+                  All things cute and useful for aesthetic content creation!
+                </p>
+                <button
+                  class="px-4 py-2 rounded-full font-semibold text-sm transition-all hover:shadow-md"
+                  style="background: #d9f99d; color: #3f6212"
+                >
+                  Get Free →
+                </button>
+              </div>
+            </article>
+            <!-- Resource Card 3 -->
+            <article
+              class="card-hover rounded-3xl p-6 shadow-lg flex items-start gap-4 animate-fade-in stagger-3 opacity-0"
+              style="background: white"
+            >
+              <div
+                class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
+                style="background: #c4b5fd"
+              >
+                💾
+              </div>
+              <div>
+                <span
+                  class="inline-block px-2 py-1 rounded-full text-xs font-bold mb-2"
+                  style="background: #fef08a; color: #854d0e"
+                  >PDF</span
+                >
+                <h3 class="font-bold text-lg mb-1" style="color: #9f1239">
+                  Accessibility Checklist
+                </h3>
+                <p class="text-sm mb-3" style="color: #be185d">
+                  From Webpages to PDFs this checklist will walk through the
+                  main steps in checking for WCAG 2.1 AA compliance.
+                </p>
+                <button
+                  class="px-4 py-2 rounded-full font-semibold text-sm transition-all hover:shadow-md"
+                  style="background: #c4b5fd; color: #5b21b6"
+                >
+                  Duplicate →
+                </button>
+              </div>
+            </article>
+            <!-- Resource Card 4 -->
+            <article
+              class="card-hover rounded-3xl p-6 shadow-lg flex items-start gap-4 animate-fade-in stagger-4 opacity-0"
+              style="background: white"
+            >
+              <div
+                class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
+                style="background: #fef08a"
+              >
+                ⚡
+              </div>
+              <div>
+                <span
+                  class="inline-block px-2 py-1 rounded-full text-xs font-bold mb-2"
+                  style="background: #d9f99d; color: #3f6212"
+                  >Code</span
+                >
+                <h3 class="font-bold text-lg mb-1" style="color: #9f1239">
+                  Starter Templates
+                </h3>
+                <p class="text-sm mb-3" style="color: #be185d">
+                  Jump-start your projects with these boilerplate codes.
+                </p>
+                <button
+                  class="px-4 py-2 rounded-full font-semibold text-sm transition-all hover:shadow-md"
+                  style="background: #fef08a; color: #854d0e"
+                >
+                  Browse All →
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Videos Section -->
+      <section id="videos" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="text-center mb-12 animate-fade-in">
+          <span class="text-4xl mb-4 block">🎬</span>
+          <h2
+            id="videos-heading"
+            class="text-4xl font-extrabold mb-2"
+            style="color: #9f1239"
+          >
+            Videos
+          </h2>
+          <p class="font-accent text-xl" style="color: #f472b6">
+            Tutorials &amp; behind the scenes
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Video Card 1 -->
+          <article
+            class="card-hover rounded-3xl overflow-hidden shadow-lg animate-fade-in stagger-1 opacity-0"
+            style="background: white"
+          >
+            <div>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/0YnbTEA23yw?si=2PVMjW5vAzmceR7b"
+                title="YouTube video player"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold mb-2" style="color: #9f1239">
+                Aiken Elementary
+              </h3>
+              <p class="text-sm" style="color: #be185d">
+                A project completed for ACPSD showcasing the wonderful
+                community, students, and staff of Aiken Elemntary.
+              </p>
+            </div>
+          </article>
+          <!-- Video Card 2 -->
+          <article
+            class="card-hover rounded-3xl overflow-hidden shadow-lg animate-fade-in stagger-2 opacity-0"
+            style="background: white"
+          >
+            <div>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/3VM1UrRol9E?si=65Z8SIitbOysGGZG"
+                title="YouTube video player"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold mb-2" style="color: #9f1239">Bus Safety</h3>
+              <p class="text-sm" style="color: #be185d">
+                Learn all about Bus Safety in this infomrational video written,
+                videoed, and produced by me.
+              </p>
+            </div>
+          </article>
+          <!-- Video Card 3 -->
+          <article
+            class="card-hover rounded-3xl overflow-hidden shadow-lg animate-fade-in stagger-3 opacity-0"
+            style="background: white"
+          >
+            <div>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/B4fmu24Y2nY?si=Vr6IVtrqkto_4N6a"
+                title="YouTube video player"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold mb-2" style="color: #9f1239">
+                National Job Shadow Day Report
+              </h3>
+              <p class="text-sm" style="color: #be185d">
+                Come along for a look into what ACPSD students participated in
+                for Job Shadow day.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer
+        class="py-12 text-center"
+        style="
+          background: linear-gradient(
+            180deg,
+            transparent,
+            rgba(254, 205, 211, 0.3)
+          );
+        "
+      >
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="flex justify-center gap-4 mb-6">
+            <a
+              href="#"
+              class="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all hover:scale-110 hover:shadow-md"
+              style="background: white"
+              aria-label="GitHub"
+            >
+              🐙
+            </a>
+            <a
+              href="#"
+              class="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all hover:scale-110 hover:shadow-md"
+              style="background: white"
+              aria-label="Twitter"
+            >
+              🐦
+            </a>
+            <a
+              href="#"
+              class="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all hover:scale-110 hover:shadow-md"
+              style="background: white"
+              aria-label="YouTube"
+            >
+              📺
+            </a>
+            <a
+              href="#"
+              class="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all hover:scale-110 hover:shadow-md"
+              style="background: white"
+              aria-label="Email"
+            >
+              💌
+            </a>
+          </div>
+          <p class="font-accent text-xl mb-2" style="color: #f472b6">
+            Made with 💖 and lots of ☕
+          </p>
+          <p class="text-sm" style="color: #be185d">
+            © 2026 Brooklyn Van Bebber. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const defaultConfig = {
+        site_title: "Creative Dev",
+        tagline: "Building cute things for the internet ✿",
+        projects_title: "Coding Projects",
+        resources_title: "Resources",
+        videos_title: "Videos",
+        background_color: "#fef3f2",
+        surface_color: "#ffffff",
+        text_color: "#be185d",
+        primary_action_color: "#9f1239",
+        accent_color: "#fecdd3",
+        font_family: "Nunito",
+        font_size: 16,
+      };
+
+      async function onConfigChange(config) {
+        const heroTitle = document.getElementById("hero-title");
+        const heroTagline = document.getElementById("hero-tagline");
+        const projectsHeading = document.getElementById("projects-heading");
+        const resourcesHeading = document.getElementById("resources-heading");
+        const videosHeading = document.getElementById("videos-heading");
+        const navTitle = document.getElementById("nav-title");
+
+        const name = config.site_title || defaultConfig.site_title;
+        heroTitle.innerHTML = `Hey, I'm <span style="color: ${config.primary_action_color || defaultConfig.primary_action_color};">${name}</span>`;
+        navTitle.textContent = "Portfolio";
+
+        heroTagline.textContent = config.tagline || defaultConfig.tagline;
+        projectsHeading.textContent =
+          config.projects_title || defaultConfig.projects_title;
+        resourcesHeading.textContent =
+          config.resources_title || defaultConfig.resources_title;
+        videosHeading.textContent =
+          config.videos_title || defaultConfig.videos_title;
+
+        // Apply colors
+        const bgColor =
+          config.background_color || defaultConfig.background_color;
+        const surfaceColor =
+          config.surface_color || defaultConfig.surface_color;
+        const textColor = config.text_color || defaultConfig.text_color;
+        const primaryColor =
+          config.primary_action_color || defaultConfig.primary_action_color;
+        const accentColor = config.accent_color || defaultConfig.accent_color;
+
+        document.getElementById("app-wrapper").style.background =
+          `linear-gradient(135deg, ${bgColor} 0%, #fef9f3 50%, #f0fdf4 100%)`;
+
+        heroTitle.style.color = primaryColor;
+        heroTagline.style.color = textColor;
+        projectsHeading.style.color = primaryColor;
+        resourcesHeading.style.color = primaryColor;
+        videosHeading.style.color = primaryColor;
+        navTitle.style.color = textColor;
+
+        // Apply fonts
+        const fontFamily = config.font_family || defaultConfig.font_family;
+        const fontSize = config.font_size || defaultConfig.font_size;
+
+        document.body.style.fontFamily = `${fontFamily}, Nunito, sans-serif`;
+        heroTitle.style.fontSize = `${fontSize * 3}px`;
+        heroTagline.style.fontSize = `${fontSize * 1.875}px`;
+        projectsHeading.style.fontSize = `${fontSize * 2.25}px`;
+        resourcesHeading.style.fontSize = `${fontSize * 2.25}px`;
+        videosHeading.style.fontSize = `${fontSize * 2.25}px`;
+      }
+
+      function mapToCapabilities(config) {
+        return {
+          recolorables: [
+            {
+              get: () =>
+                config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              },
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => {
+                config.surface_color = value;
+                window.elementSdk.setConfig({ surface_color: value });
+              },
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              },
+            },
+            {
+              get: () =>
+                config.primary_action_color ||
+                defaultConfig.primary_action_color,
+              set: (value) => {
+                config.primary_action_color = value;
+                window.elementSdk.setConfig({ primary_action_color: value });
+              },
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                config.accent_color = value;
+                window.elementSdk.setConfig({ accent_color: value });
+              },
+            },
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            },
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            },
+          },
+        };
+      }
+
+      function mapToEditPanelValues(config) {
+        return new Map([
+          ["site_title", config.site_title || defaultConfig.site_title],
+          ["tagline", config.tagline || defaultConfig.tagline],
+          [
+            "projects_title",
+            config.projects_title || defaultConfig.projects_title,
+          ],
+          [
+            "resources_title",
+            config.resources_title || defaultConfig.resources_title,
+          ],
+          ["videos_title", config.videos_title || defaultConfig.videos_title],
+        ]);
+      }
+
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues,
+        });
+      } else {
+        onConfigChange(defaultConfig);
+      }
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9d08cb3a7556c947',t:'MTc3MTUzNTg3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
   </body>
 </html>
